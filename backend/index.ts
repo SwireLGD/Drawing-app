@@ -46,7 +46,7 @@ router.ws('/canvas',  (ws, req) => {
             Object.values(activeConnections).forEach(conn => {
                 conn.send(JSON.stringify({
                     type: 'NEW_DRAW',
-                    payload: decodedMessage
+                    payload: [decodedMessage]
                 }));
             });
         }
