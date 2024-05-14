@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Drawing } from "./types";
+import './App.css';
 
 const DrawingApp = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -59,9 +60,9 @@ const DrawingApp = () => {
   };
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+    <div className="container">
       <h1>Drawing App</h1>
-      <input type="color" value={color} onChange={e => setColor(e.target.value)} />
+      <input type="color" value={color} onChange={e => setColor(e.target.value)} className="color" />
       <canvas
         ref={canvasRef}
         width={1200}
