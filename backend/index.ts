@@ -1,7 +1,7 @@
 import express from 'express';
 import expressWs from 'express-ws';
 import cors from 'cors';
-import { ActiveConnections, Drawings, IncomingMessage } from './types';
+import { ActiveConnections, Drawings } from './types';
 import crypto from 'crypto';
 
 const app = express();
@@ -27,9 +27,6 @@ router.ws('/canvas',  (ws, req) => {
         console.log('client disconnected! id=', id);
         delete activeConnections[id];
     });
-
-    let username = 'Anonymous';
-
 
     ws.on('message', (msg) => {
         let decodedMessage;
